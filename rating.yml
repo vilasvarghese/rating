@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rating
+  labels:
+    app: rating
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rating
+  template:
+    metadata:
+      labels:
+        app: rating
+    spec:
+      containers:
+      - name: rating
+        image: vilasvarghese/rating
+        ports:
+        - containerPort: 8082
+        imagePullPolicy: Always
